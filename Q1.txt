@@ -1,0 +1,4 @@
+Day 10
+question 1
+
+In the code setName cannot change the constant
