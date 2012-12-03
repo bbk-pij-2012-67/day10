@@ -80,4 +80,42 @@ public class LibraryTest{
 		assertFalse(takenBook.getIsTaken());
 	}
 
+	@Test
+	public void TestsBookCount(){
+		Library library = new Library("Library name");
+		for(int c=1;c<=100;c++){
+			String title = Double.toString(Math.random());
+			String author = Double.toString(Math.random());
+			library.addBook(title,author);
+			assertEquals(c,library.getBookCount());
+		}
+	}
+
+	@Test
+	public void testsReaderCount(){
+		Library library = new Library("Library name");
+		for(int c=1;c<=100;c++){
+			int myID = library.getId(Double.toString(Math.random()));
+			assertEquals(c,library.getReaderCount());
+		}
+	}
+
+	@Test
+		public void TestsBookBorrowedCount(){
+			Library library = new Library("Library name");
+			int borrowedCount = 0;
+			for(int c=1;c<=100;c++){
+				String title = Double.toString(Math.random());
+				String author = Double.toString(Math.random());
+				library.addBook(title,author);
+				if(c%3 == 0){
+					library.takeBook(title);
+					borrowedCount++;
+				}
+				assertEquals(borrowedCount,library.getBookBorrowedCount());
+			}
+	}
+
+
+
 }

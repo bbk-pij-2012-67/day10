@@ -31,4 +31,27 @@ public class BookList{
 		}
 		return currentBook;
 	}
+
+	public int getBookCount(){
+		int result = 0;
+		Book currentBook = firstBook;
+		while (currentBook != null){
+			currentBook = currentBook.getNext();
+			result++;
+		}
+		return result;
+	}
+
+	public int getBookBorrowedCount(){
+			int result = 0;
+			Book currentBook = firstBook;
+			while (currentBook != null){
+				Book prevBook= currentBook;
+				currentBook = currentBook.getNext();
+				if(prevBook.getIsTaken()){
+					result++;
+				}
+			}
+			return result;
+	}
 }

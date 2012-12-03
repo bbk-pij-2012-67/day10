@@ -61,10 +61,14 @@ public class Library{
 	}
 
 	public int getReaderCount(){
-		return 0;
+		return libraryUsers.getUserCount();
 	}
 
 	public int getBookCount(){
-		return 0;
+		return bookList.getBookCount();
+	}
+
+	public int getBookBorrowedCount(){
+			return bookList.getBookBorrowedCount();
 	}
 }

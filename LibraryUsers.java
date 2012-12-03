@@ -1,20 +1,20 @@
 public class LibraryUsers implements LibraryUsersInterface{
 
-	private LibraryUser InitialUser;
+	private LibraryUser initialUser;
 	private int maxID;
 
 	public LibraryUsers(){
-		InitialUser = null;
+		initialUser = null;
 		maxID = 0;
 	}
 
 	private int add(String name){
-		if(InitialUser == null){
-			InitialUser = new LibraryUser(name);
-			InitialUser.setLibraryID(maxID+1);
-			InitialUser.setNext(null);
+		if(initialUser == null){
+			initialUser = new LibraryUser(name);
+			initialUser.setLibraryID(maxID+1);
+			initialUser.setNext(null);
 		}else{
-			LibraryUser currentUser = InitialUser;
+			LibraryUser currentUser = initialUser;
 			//find last user added
 			while(currentUser.getNext() != null){
 				currentUser = currentUser.getNext();
@@ -32,7 +32,7 @@ public class LibraryUsers implements LibraryUsersInterface{
 	public int getId(String name){
 		//search for name
 		int result;
-		LibraryUser currentUser = InitialUser;
+		LibraryUser currentUser = initialUser;
 		while(currentUser != null && !currentUser.getName().equals(name)){
 			currentUser = currentUser.getNext();
 		}
@@ -45,6 +45,16 @@ public class LibraryUsers implements LibraryUsersInterface{
 		}
 
 
+		return result;
+	}
+
+	public int getUserCount(){
+		int result = 0;
+		LibraryUser currentUser = initialUser;
+		while(currentUser != null){
+			currentUser = currentUser.getNext();
+			result ++;
+		}
 		return result;
 	}
 }

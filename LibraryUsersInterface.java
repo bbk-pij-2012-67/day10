@@ -7,5 +7,7 @@ public interface LibraryUsersInterface{
 	*/
 	int getId(String name);
 
+	int getUserCount();
+
 
 }

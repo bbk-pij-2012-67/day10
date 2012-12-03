@@ -21,4 +21,18 @@ public class BookListTest{
 		assertTrue(myList.getBook("Title4").getAuthor().equals("Author4"));
 		assertTrue(myList.getBook("Title6").getAuthor().equals("Author6"));
 	}
+
+	@Test
+	public void TestGetBookCount(){
+		BookList myList = new BookList();
+		for(int c=1;c<=100;c++){
+			String title = Double.toString(Math.random());
+			String author = Double.toString(Math.random());
+			myList.add(title,author);
+			assertEquals(c,myList.getBookCount());
+		}
+	}
+
+
+	}
 }
