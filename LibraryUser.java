@@ -25,7 +25,7 @@ public class LibraryUser{
 
 	public int register(Library library){
 		this.library = library;
-		return library.getLibraryUserID();
+		return library.getId(name);
 	}
 
 	public String getLibrary(){
